@@ -21,6 +21,17 @@ class ClientController {
             result.json({error : "Une erreur est survenue lors de la récupération du client"});
         }
     }
+    
+    async addClient(request, result){
+        try {
+            const client = await ClientService.addClient(request.body);
+            result.json(client);
+        } catch (error) {
+            console.log(error);
+            result.status(500);
+            result.json({error : "Une erreur est survenu lors de l'insertion du client"})
+        }
+    }
 }
 
 module.exports = new ClientController();

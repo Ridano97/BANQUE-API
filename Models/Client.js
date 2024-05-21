@@ -40,7 +40,7 @@ Client.init({
         allowNull : true
     },
     CL_CodePostal : {
-        type : DataTypes.DATE,
+        type : DataTypes.STRING,
         length : 7,
         allowNull : true
     },
