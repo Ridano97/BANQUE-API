@@ -1,4 +1,5 @@
 const Transaction = require("../Models/Transaction");
+const { getClientByID } = require("./ClientService");
 
 class TransactionService{
     async getAllTransaction(){
@@ -11,6 +12,19 @@ class TransactionService{
 
     async addTransaction(transaction){
         return await Transaction.create(transaction);
+    }
+
+    async removeTransaction(transactionID){
+        return await Transaction.destroy({
+            where : {tr_id : transactionID}
+          })
+        }
+
+    async updateTransaction(transactionID, transaction){
+        return await Transaction.update(transaction , {
+            where : {tr_id : transactionID},
+            individualHooks : true
+        })
     }
 }
 

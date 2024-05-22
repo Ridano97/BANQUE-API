@@ -10,14 +10,11 @@ const AuthenticateController = require('./Controllers/AuthenticateController');
 app.use(express.json());
 
 app.use('/auth', authenticateRoutes)
-app.use('/clients', AuthenticateController.authenticateToken, clientRoutes)
+app.use('/clients',AuthenticateController.authenticateToken,  clientRoutes)
 app.use('/comptes',AuthenticateController.authenticateToken, compteRoutes)
 app.use('/transactions',AuthenticateController.authenticateToken, transactionRoutes)
 
 module.exports = app;
-
-
-
 
 
 

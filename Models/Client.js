@@ -6,7 +6,7 @@ const Compte = require('./Compte');
 const bcrypt = require("bcrypt");
 class Client extends Model {
 
-    async  validePassword (password){
+    async  validatePassword (password){
         return await bcrypt.compare(password, this.CL_Password); 
     }
 }
